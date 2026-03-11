@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8080/api/employees';
-const AUTH_URL = 'http://localhost:8080/api/auth';
+// const BASE_URL = 'http://localhost:8080/api/employees';
+// const AUTH_URL = 'http://localhost:8080/api/auth';
+const API = process.env.REACT_APP_API_URL;
 
+const BASE_URL = `${API}/api/employees`;
+const AUTH_URL = `${API}/api/auth`;
 // ── Attach JWT token to every request automatically ──
 axios.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
